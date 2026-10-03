@@ -35,7 +35,9 @@
   // `npc-shop-window` sem ser loja nenhuma. Os dois ficam de fora.
   const LOJA = '.npc-shop-window:not(.premium-shop-window):not(.expedition-window)';
   const LINHA = '.npc-shop__pokemon-row';
-  const RODAPE_VENDA = '.npc-shop__sell-footer';
+  // So' a aba de vender pokemon tem filtro de raridade; o rodape e o "Selecionar todos" sao os
+  // mesmos na aba de vender itens, entao nao distinguem uma aba da outra.
+  const FILTROS_RARIDADE = '.npc-shop__quality-filters';
   const BOTAO_VENDER = '.npc-shop__sell-button';
   const SOBREPOSTO = '.pokeidle-panel-overlay';
   const TETO_PADRAO = 2;
@@ -150,13 +152,20 @@
     if (fechar) fechar.click();
   }
 
-  /** Poe a loja na aba de vender pokemon: ela guarda a ultima aberta, que pode ser outra. */
+  /**
+   * Poe a loja na aba de vender pokemon: ela guarda a ultima aberta, que pode ser outra.
+   *
+   * O rodape `npc-shop__sell-footer` nao serve para saber onde estamos: a aba "Vender itens" tem
+   * um igualzinho, com o mesmo "Selecionar todos" e o mesmo botao. Com a loja aberta nos itens, a
+   * extensao dava a aba por certa, nao trocava, nao achava linha de pokemon nenhuma e ficava
+   * parada sem dizer por que. Quem so' existe na aba dos pokemon e' o filtro de raridades.
+   */
   async function abaDeVenda(janela) {
-    if (janela.querySelector(RODAPE_VENDA)) return true;
+    if (janela.querySelector(FILTROS_RARIDADE)) return true;
     const aba = alvoComTexto(janela, 'Vender Pokémon');
     if (!aba) return false;
     aba.click();
-    return Boolean(await aguardarDentro(janela, RODAPE_VENDA, 5000));
+    return Boolean(await aguardarDentro(janela, FILTROS_RARIDADE, 5000));
   }
 
   const botoesDeRaridade = (janela) =>

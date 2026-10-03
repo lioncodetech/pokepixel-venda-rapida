@@ -78,6 +78,15 @@ o tamanho do lote, a posição e o tamanho do painel, a última contagem vista, 
 suas preferências de confirmação e de ciclo. Não faz chamada de rede nenhuma e não envia nada para
 lugar nenhum.
 
+## Se a loja abrir noutra aba
+
+A loja do Mark guarda a última aba aberta. Se ela abrir em "Vender itens", "Comprar itens" ou
+"Recomprar", a extensão passa sozinha para "Vender Pokémon" antes de qualquer coisa.
+
+Até a versão 1.2.1 ela não passava: o rodapé com "Selecionar todos" é igual em todas as abas de
+venda, então a extensão dava a aba por certa, não achava pokémon nenhum e ficava parada sem
+explicar. Agora quem decide é o filtro de raridades, que só existe na aba dos pokémon.
+
 ## Transparência
 
 O painel fica um pouco transparente em repouso, para não tapar o jogo atrás dele, e volta ao normal
