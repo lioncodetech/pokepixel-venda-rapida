@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "PokePixel - venda rapida",
+  "version": "1.0.0",
+  "description": "Vende pokemon na loja do Mark pelas raridades que voce marcar, com teto de nivel. Alt+D esconde e Alt+F mostra.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://pokepixel.nietore.com/*",
+        "https://poke.idleworld.online/*"
+      ],
+      "js": [
+        "venda-rapida.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
