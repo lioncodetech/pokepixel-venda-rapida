@@ -78,6 +78,11 @@ o tamanho do lote, a posição e o tamanho do painel, a última contagem vista, 
 suas preferências de confirmação e de ciclo. Não faz chamada de rede nenhuma e não envia nada para
 lugar nenhum.
 
+## Transparência
+
+O painel fica um pouco transparente em repouso, para não tapar o jogo atrás dele, e volta ao normal
+assim que o mouse ou o cursor de texto chega perto.
+
 ## Onde funciona
 
 `pokepixel.nietore.com` e `poke.idleworld.online`. Em qualquer outro site ela não é carregada.
