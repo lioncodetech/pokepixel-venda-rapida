@@ -47,6 +47,25 @@ tempo sorteado dentro da faixa de minutos. O botão vira **Parar** e mostra o re
 A próxima só é marcada quando a anterior termina, então duas vendas nunca se cruzam. Recarregar a
 página não dispara venda: o ciclo volta a contar o tempo, mas espera o intervalo.
 
+### Os dois modos do ciclo
+
+A lista ao lado do botão escolhe como o ciclo marca a próxima rodada:
+
+- **a cada** `10` a `15` **min** — o que já existia: um intervalo sorteado dentro da faixa, a
+  qualquer hora do dia.
+- **uma vez entre** `08:00-09:00, 19:00-20:00` — **uma única rodada dentro de cada janela**, num
+  instante sorteado lá dentro. Com essas duas janelas são duas rodadas por dia: uma entre 8 e 9,
+  outra entre 19 e 20, nunca no mesmo minuto dois dias seguidos.
+
+Só os campos do modo escolhido aparecem. Vale uma janela, duas ou quantas quiser, separadas por
+vírgula; `8-9` também serve, e uma janela que termina antes de começar atravessa a meia-noite
+(`22:00-02:00`). Um texto que não vira janela nenhuma fica marcado em vermelho.
+
+No modo por horário, apertar **Iniciar** não dispara nada na hora: ele marca a rodada da janela
+atual (se ainda der tempo) ou da próxima — a graça do modo é a rodada cair dentro da janela.
+Enquanto o ciclo está ligado, ao lado do relógio aparece **a hora da próxima rodada**, por exemplo
+`próxima às 17:29`.
+
 ## Atualizar lista
 
 Abre a loja só para contar quantos Pokémon há de cada raridade, e fecha. O número fica ao lado de
