@@ -95,17 +95,22 @@
   }
 
   /**
-   * A caixa de confirmacao da venda, se o jogo mostrar alguma.
+   * A caixa de confirmacao da venda.
    *
-   * Nao deu para ver uma de perto: ela so' apareceria depois de uma venda de verdade, e nenhum
-   * pokemon foi vendido para descobrir. Por isso o reconhecimento e' pelo que a caixa *e'* — uma
-   * janela sobreposta que nao e' a loja, fala de venda e tem botao.
+   * Ela e' um `pokeidle-dialog-overlay`, e nao o `pokeidle-panel-overlay` das janelas do jogo, que
+   * era o que se procurava aqui no escuro — este codigo foi escrito sem nunca ter visto uma caixa
+   * de perto. Resultado: a extensao clicava em vender, nao reconhecia a caixa que abria na frente
+   * dela, e ficava esperando uma lista que nunca encolhia.
+   *
+   * Agora e' a caixa de verdade: "Confirmar venda", com os botoes Vender e Cancelar.
    */
+  const DIALOGO = '.pokeidle-dialog-overlay';
   function confirmacaoNaTela() {
-    for (const sobre of document.querySelectorAll(SOBREPOSTO)) {
-      if (sobre.querySelector(LOJA)) continue;
-      const texto = (sobre.innerText || '').toLowerCase();
-      if (/vend|confirm/.test(texto) && sobre.querySelector('button')) return sobre;
+    for (const sobre of document.querySelectorAll(DIALOGO)) {
+      if (sobre.getBoundingClientRect().width === 0) continue;
+      const textos = [...sobre.querySelectorAll('button')].map((b) => (b.textContent || '').trim());
+      if (textos.some((t) => /^(vender|confirmar|sim)$/i.test(t)) && textos.includes('Cancelar'))
+        return sobre;
     }
     return null;
   }

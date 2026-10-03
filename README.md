@@ -78,6 +78,13 @@ o tamanho do lote, a posição e o tamanho do painel, a última contagem vista, 
 suas preferências de confirmação e de ciclo. Não faz chamada de rede nenhuma e não envia nada para
 lugar nenhum.
 
+## A caixa de confirmação
+
+Quando você deixa marcado "Confirmar sozinho", a extensão clica em **Vender** na caixa que o jogo
+abre. Até a versão 1.2.2 ela não clicava: procurava a caixa no lugar errado — este código foi
+escrito sem nunca ter visto uma de perto —, não a reconhecia e ficava esperando uma lista que
+nunca encolhia. Agora é a caixa de verdade: "Confirmar venda", com os botões Vender e Cancelar.
+
 ## Se a loja abrir noutra aba
 
 A loja do Mark guarda a última aba aberta. Se ela abrir em "Vender itens", "Comprar itens" ou
